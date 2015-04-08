@@ -104,12 +104,12 @@ header h2.tzine a{
 .filters{
 	box-sizing: border-box;
 	padding: 5px 30px 30px;
-	width: 190px;
+	/* width: 190px; */
 	background-color: #FFF;
 	border: 1px solid #DBE3E7;
 	border-radius: 3px;
 	box-shadow: 1px 3px 1px rgba(0, 0, 0, 0.08);
-	position: fixed;
+	/* position: fixed; */
 	text-align: left;
 	color: #2B2E31;
 	opacity: 0;
@@ -163,7 +163,7 @@ header h2.tzine a{
 
 .products-list{
 	list-style:none;
-	margin-left:225px;
+	/* margin-left:225px; */
 	max-width: 1500px;
 	text-align: center;
 	padding: 0;

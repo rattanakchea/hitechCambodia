@@ -27,7 +27,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href='service.html'>Service</a>
+                        <a href='#' id="service">Service</a>
                     </li>
                     <li>
                         <a href='about.html'>About</a>
@@ -41,44 +41,50 @@
         <div class="main-content">
 
             <div class="all-products page">
+                <div class="row">
+                    <div class="col-md-3">
+                        <form class="filters">
+                            <div class="filter-criteria">
+                                <span>Category</span>
+                                <label><input type="checkbox" name="category" value="scan">DIY Scan Tool</label>
+                                <label><input type="checkbox" name="category" value="lift">Lift</label>
+                            </div>
 
-                <div class="filters">
-                    <form>
+                            <button>Clear filters</button>
+                        </form>
 
-                        <div class="filter-criteria">
-                            <span>Category</span>
-                            <label><input type="checkbox" name="category" value="scan">DIY Scan Tool</label>
-                            <label><input type="checkbox" name="category" value="lift">Lift</label>
+                    </div>
+                    <div class="col-md-9">
+                        <div id="serviceText" class="jumbotron collapse">
+                            <p><strong>HiTechCambodia</strong>
+                                is Lorem dfkasdljfaksdfj dsfljasdf jaklsdfj asjdfl afdlal</p>
+                            <h3>Our Services include</h3>
+                            <ul>
+                                <li>Autoparts</li>
+                            </ul>
                         </div>
+                        <!--Production list-->
+                        <ul class="products-list">
 
-                        <button>Clear filters</button>
-
-                    </form>
-
+                            <script id="products-template" type="x-handlebars-template">​
+                                {{#each this}}
+                                <li data-index="{{id}}">
+                                <a href="#" class="product-photo"><img src="{{image.small}}" height="130" alt="{{name}}"/></a>
+                                <h2><a href="#"> {{name}} </a></h2>
+                                <ul class="product-description">
+                                <li><span>Category </span>{{specs.category}}</li>
+                                </ul>
+                                <button>Buy Now!</button>
+                                <div class="highlight"></div>
+                                </li>
+                                {{/each}}
+                            </script> 
+                        </ul>
+                    </div>
                 </div>
 
-                <ul class="products-list">
-                    <script id="products-template" type="x-handlebars-template">​
-                    {{#each this}}
-                            <li data-index="{{id}}">
-                                    <a href="#" class="product-photo"><img src="{{image.small}}" height="130" alt="{{name}}"/></a>
-                                    <h2><a href="#"> {{name}} </a></h2>
-                                    <ul class="product-description">
-                                            <li><span>Category </span>{{specs.category}}</li>
-                                            <li><span>Storage: </span>{{specs.storage}} GB</li>
-                                            <li><span>OS: </span>{{specs.os}}</li>
-                                            <li><span>Camera: </span>{{specs.camera}} Mpx</li>
-                                    </ul>
-                                    <button>Buy Now!</button>
-                                    <p class="product-price">{{price}}$</p>
-                                    <div class="highlight"></div>
-                            </li>
-                    {{/each}}
-                    </script> 
-                </ul>
 
             </div>
-
 
             <div class="single-product page">
 
@@ -104,7 +110,5 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
         <script src="assets/js/script.js"></script>
-
-
     </body>
 </html>

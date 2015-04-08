@@ -350,6 +350,11 @@ $(function () {
             window.location.hash = '#';
         }
 
-    }
+    };
+    
+    //click hander for service link
+    $('#service').on('click', function(){
+       $('#serviceText').slideToggle();
+    });
 
 });
