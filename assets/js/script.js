@@ -1,6 +1,7 @@
 $(function () {
     // Globals variables
     var url = 'https://dl.dropboxusercontent.com/u/2122820/hitechcambodia/products.json';
+    var localFile = 'products_1.json';
 
     // 	An array containing objects with information about the products.
     var products = [],
@@ -95,7 +96,7 @@ $(function () {
 
     // Get data about our products from products.json.
     $.ajax({
-        url: url,
+        url: localFile,
         type: 'GET',
         jsonpCallback: 'myCallback',
         dataType: "json",
