@@ -1,5 +1,6 @@
 $(function () {
     // Globals variables
+    var url = 'https://dl.dropboxusercontent.com/u/2122820/hitechcambodia/products.json';
 
     // 	An array containing objects with information about the products.
     var products = [],
@@ -93,16 +94,21 @@ $(function () {
     // These are called on page load
 
     // Get data about our products from products.json.
-    $.getJSON("products_1.json", function (data) {
+    $.ajax({
+        url: url,
+        type: 'GET',
+        jsonpCallback: 'myCallback',
+        dataType: "json",
+        success: function (data) {
+            // Write the data into our global variable.
+            products = data;
 
-        // Write the data into our global variable.
-        products = data;
+            // Call a function to create HTML for all the products.
+            generateAllProductsHTML(products);
 
-        // Call a function to create HTML for all the products.
-        generateAllProductsHTML(products);
-
-        // Manually trigger a hashchange to start the app.
-        $(window).trigger('hashchange');
+            // Manually trigger a hashchange to start the app.
+            $(window).trigger('hashchange');
+        }
     });
 
 
