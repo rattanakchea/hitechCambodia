@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700italic|Oswald' rel='stylesheet' type='text/css'>
+    <link href="css/main.css" rel="stylesheet" />
+    <script src="js/vendor/angular.min.js"></script>
+  </head>
+  <body ng-app="foodApp">
+    <div class="header">
+      <h1><span>Food</span><span>Planet</span></h1>
+    </div>
+
+    <div class="main" ng-controller="MainController">
+      <div class="container">
+        <h1>Specials for {{ today | date }}</h1>
+        
+        <h2>Appetizers</h2>
+        <div class="appetizers row" ng-repeat="a in appetizers">
+          <div class="item col-md-9">
+            <h3 class="name">{{a.name}}</h3>
+            <p class="description">{{a.description}}</p>
+          </div>
+          <div class="price col-md-3">
+            <p class="price">{{a.price | currency}}</p>
+          </div>
+        </div>
+         <h2>Main Khmer Foods</h2>
+        <div class="mains row" ng-repeat="k in khmerfoods">
+          <div class="item col-md-3">
+            <img ng-src="{{k.image}}">
+          </div>
+          <div class="item col-md-6">
+            <h3 class="name">{{k.name}}</h3>
+            <p class="description">{{k.description}}</p>
+          </div>
+          <div class="price col-md-3">
+            <p class="price">{{k.price | currency}}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer">
+    </div>
+    
+    <!-- Modules -->
+    <script src="js/app.js"></script>
+
+    <!-- Controllers -->
+    <script src="js/controllers/MainController.js"></script>
+  </body>
+</html>

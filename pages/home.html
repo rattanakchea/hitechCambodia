@@ -1,0 +1,22 @@
+<!-- product listing -->
+<div class="row">
+	<div class="col-xs-12 col-md-offset-3 col-md-6">
+		<pagination total-items="productList.products.length" ng-model="currentPage" items-per-page="productList.pageSize">
+		</pagination>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-6 col-lg-4 col-md-4" ng-repeat="product in productList.products |filter:search | filter:productList.catFilter | startFrom:(currentPage-1) *productList.pageSize  | limitTo:productList.pageSize">
+		<div class="thumbnail">
+			<img ng-src="{{product.image.small}}" width="105px" alt="">
+			<div class="description">
+				<h4 class="pull-right"><small>{{product.category}}</small></h4>
+				<h4><a href="#">{{product.name | limitTo:10}}</a>
+				</h4>
+				<p>{{product.description | limitTo:40}}</p>
+			</div>
+
+			<a ng-href="view/{{product.id}}" class="btn btn-info">View Detail</a>
+		</div>
+	</div>
+</div>

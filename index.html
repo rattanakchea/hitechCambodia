@@ -1,114 +1,119 @@
 <!DOCTYPE html>
-<html>
-    <head lang="en">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta charset="utf-8">
-        <title>HiTech Cambodia</title>
+<html lang="en" ng-app="myApp">
 
-        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="assets/css/styles.css" rel="stylesheet">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <base href="/hitechcambodia">
+    <title>HiTech Cambodia - Auto Tools</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/shop-homepage.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+        <!-- library -->
+        <script src="js/lib/jquery.js"></script>
+        <script src="js/lib/bootstrap.min.js"></script>
+        <script src="js/lib/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+        <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script>
+
+        <!-- Modules -->
+        <script src="js/app.js"></script>
+        
+        <script src="js/services/ProductService.js"></script>   
+        <!-- Controllers -->
+        <script src="js/controllers/MainController.js"></script> 
     </head>
+
     <body>
-
         <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#/">HiTech Cambodia</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href='#' id="service">Service</a>
-                    </li>
-                    <li>
-                        <a href='about.html'>About</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-
-        </nav>
-
-        <div class="main-content">
-
-            <div class="all-products page">
-                <div class="row">
-                    <div class="col-md-3">
-                        <form class="filters">
-                            <div class="filter-criteria">
-                                <span>Category</span>
-                                <label><input type="checkbox" name="category" value="scan">DIY Scan Tool</label>
-                                <label><input type="checkbox" name="category" value="lift">Lift</label>
-                            </div>
-
-                            <button>Clear filters</button>
-                        </form>
-
+        <header id="header" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <nav>
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a id="brand" class="navbar-brand" href="/">HiTech Cambodia</a>
                     </div>
-                    <div class="col-md-9">
-                        <div id="serviceText" class="jumbotron collapse">
-                            <p><strong>HiTechCambodia</strong>
-                                is Lorem dfkasdljfaksdfj dsfljasdf jaklsdfj asjdfl afdlal</p>
-                            <h3>Our Services include</h3>
-                            <ul>
-                                <li>Autoparts</li>
-                            </ul>
-                        </div>
-                        <!--Production list-->
-                        <ul class="products-list">
-
-                            <script id="products-template" type="x-handlebars-template">​
-                                {{#each this}}
-                                <li data-index="{{id}}">
-                                <a href="#" class="product-photo"><img src="{{image.small}}" height="130" alt="{{name}}"/></a>
-                                <h2><a href="#"> {{name}} </a></h2>
-                                <ul class="product-description">
-                                <li><span>Category </span>{{specs.category}}</li>
-                                </ul>
-                                <button>Buy Now!</button>
-                                <div class="highlight"></div>
-                                </li>
-                                {{/each}}
-                            </script> 
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="/about">About</a>
+                            </li>
                         </ul>
                     </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container -->
+            </nav>
+        </header>
+
+        <!-- Page Content -->
+        <div class="container" ng-controller="ProductListCtrl as productList">
+            <div class="row">
+                <div class="col-md-3">
+                    <p class="lead">Category</p>
+                    <div class="list-group">
+                        <label class="list-group-item" ng-repeat="item in productList.categories">
+                            <input type="checkbox" ng-click="productList.includeCategoy(cat)"> {{item.category}}
+                        </label>
+                    </div>
                 </div>
 
+                <div class="col-md-9">
+                    <!-- carousel -->
+                    <div class="row">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Search" ng-model="search">
+                      </div>
+                  </div>
 
-            </div>
+                  <div ng-view></div>
 
-            <div class="single-product page">
+              </div>
 
-                <div class="overlay"></div>
+          </div>
 
-                <div class="preview-large">
-                    <h3>Single product view</h3>
-                    <img src=""/>
-                    <p></p>
+      </div>
+      <!-- /.container -->
+      <div class="container">
 
-                    <span class="close">×</span>
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; HiTech Cambodia 2015</p>
+                    <span ng-bind="productList.today | date"></span>
                 </div>
-
             </div>
+        </footer>
 
-            <div class="error page">
-                <h3>Sorry, something went wrong :(</h3>
-            </div>
+    </div>
+    <!-- /.container -->
 
-        </div>
+</body>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/script.js"></script>
-    </body>
 </html>

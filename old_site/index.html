@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8">
+        <title>HiTech Cambodia</title>
+
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/styles.css" rel="stylesheet">
+    </head>
+    <body>
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#/">HiTech Cambodia</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href='#' id="service">Service</a>
+                    </li>
+                    <li>
+                        <a href='about.html'>About</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+
+        </nav>
+
+        <div class="main-content">
+
+            <div class="all-products page">
+                <div class="row">
+                    <div class="col-md-3">
+                        <form class="filters">
+                            <div class="filter-criteria">
+                                <span>Category</span>
+                                <label><input type="checkbox" name="category" value="scan">DIY Scan Tool</label>
+                                <label><input type="checkbox" name="category" value="lift">Lift</label>
+                            </div>
+
+                            <button>Clear filters</button>
+                        </form>
+
+                    </div>
+                    <div class="col-md-9">
+                        <div id="serviceText" class="jumbotron collapse">
+                            <p><strong>HiTechCambodia</strong>
+                                is Lorem dfkasdljfaksdfj dsfljasdf jaklsdfj asjdfl afdlal</p>
+                            <h3>Our Services include</h3>
+                            <ul>
+                                <li>Autoparts</li>
+                            </ul>
+                        </div>
+                        <!--Production list-->
+                        <ul class="products-list">
+
+                            <script id="products-template" type="x-handlebars-template">​
+                                {{#each this}}
+                                <li data-index="{{id}}">
+                                <a href="#" class="product-photo"><img src="{{image.small}}" height="130" alt="{{name}}"/></a>
+                                <h2><a href="#"> {{name}} </a></h2>
+                                <ul class="product-description">
+                                <li><span>Category </span>{{specs.category}}</li>
+                                </ul>
+                                <button>Buy Now!</button>
+                                <div class="highlight"></div>
+                                </li>
+                                {{/each}}
+                            </script> 
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="single-product page">
+
+                <div class="overlay"></div>
+
+                <div class="preview-large">
+                    <h3>Single product view</h3>
+                    <img src=""/>
+                    <p></p>
+
+                    <span class="close">×</span>
+                </div>
+
+            </div>
+
+            <div class="error page">
+                <h3>Sorry, something went wrong :(</h3>
+            </div>
+
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/script.js"></script>
+    </body>
+</html>
