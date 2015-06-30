@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <base href="/hitechcambodia/">
+   <!--  <base href="/hitechcambodia/"> -->
     <title>HiTech Cambodia - Auto Tools</title>
 
     <!-- Bootstrap Core CSS -->
@@ -76,7 +76,7 @@
                     <p class="lead">Category</p>
                     <div class="list-group">
                         <label class="list-group-item" ng-repeat="item in productList.categories">
-                            <input type="checkbox" ng-click="productList.includeCategoy(cat)"> {{item.category}}
+                            <input type="checkbox" ng-click="productList.includeCategoy(item.category)"> {{item.category}}
                         </label>
                     </div>
                 </div>
