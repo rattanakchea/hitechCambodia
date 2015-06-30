@@ -8,11 +8,11 @@ app.config(['$routeProvider', '$locationProvider',
 		$routeProvider
     //home page
     .when('/', {
-    	templateUrl: '/pages/home.html'
+    	templateUrl: 'pages/home.html'
     })
 
     .when('/about', {
-    	templateUrl: '/pages/about.html'
+    	templateUrl: 'pages/about.html'
     }).
     when('/contact', {
     	templateUrl: 'pages/contact.html'
