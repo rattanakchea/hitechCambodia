@@ -1,7 +1,7 @@
 
 app.factory('ProductService', function($http) {
-	var productUrl = 'https://dl.dropboxusercontent.com/u/2122820/hosted_json/hitechproducts.json';
-	var catUrl = 'https://dl.dropboxusercontent.com/u/2122820/hosted_json/hitechCategories.json';
+	var productUrl = 'http://codepen.io/rattanak22/pen/eNyXeL.js';
+	var catUrl = 'http://codepen.io/rattanak22/pen/RPxdxr.js';
 
 	var ProductService = {
 		getAllProducts : function(){
